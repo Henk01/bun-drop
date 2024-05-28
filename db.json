@@ -1,0 +1,148 @@
+{
+    "item": [
+    {
+    "id": 1,
+    "title": "Classic Burger",
+    "price": 6.99,
+    "description": "A classic beef burger with lettuce, tomato, and onions",
+    "category": "burgers",
+    "image": "https://www.pngall.com/wp-content/uploads/5/Hamburger-PNG-Pic.png",
+    "popular": true
+    },
+    {
+    "id": 2,
+    "title": "French Fries",
+    "price": 3.99,
+    "description": "Crispy sweet potato fries topped with fresh parsley.",
+    "category": "sides",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/French_Fries.png",
+    "popular": true
+    },
+    {
+    "id": 3,
+    "title": "Cheeseburger",
+    "price": 7.99,
+    "description": "A classic beef burger with lettuce, tomato, and cheese.",
+    "category": "burgers",
+    "image": "https://freepngimg.com/save/158711-cheese-burger-png-file-hd/700x487",
+    "popular": true
+    },
+    {
+    "id": 4,
+    "title": "Chicken Tenders",
+    "price": 4.99,
+    "description": "Crispy chicken tenders served with your choice of dipping sauce.",
+    "category": "sides",
+    "image": "https://indianbbqgrill.ca/cdn/shop/products/image.png?v=1620782878",
+    "popular": false
+    },
+    {
+    "id": 5,
+    "title": "Veggie Burger",
+    "price": 9.99,
+    "description": "A veggie burger with lettuce, tomato, and onions.",
+    "category": "burgers",
+    "image": "https://i.pinimg.com/originals/97/da/26/97da268ca85129275b94af124e9862ed.png",
+    "popular": false
+    },
+    {
+    "id": 6,
+    "title": "Onion Rings",
+    "price": 2.99,
+    "description": "Crispy onion rings served with your choice of dipping sauce.",
+    "category": "sides",
+    "image": "https://i.pinimg.com/originals/06/d4/82/06d4821cfff3c500532b3c24c588b3b6.png",
+    "popular": false
+    },
+    {
+    "id": 7,
+    "title": "Milkshake",
+    "price": 2.99,
+    "description": "A classic vanilla milkshake.",
+    "category": "drinks",
+    "image": "https://img.pikbest.com/origin/09/10/29/85jpIkbEsTu32.png!sw800",
+    "popular": false
+    },
+    {
+    "id": 8,
+    "title": "Soda",
+    "price": 1.50,
+    "description": "A can of soda.",
+    "category": "drinks",
+    "image": "https://www.pngall.com/wp-content/uploads/8/Soda-Drink.png",
+    "popular": true
+    },
+    {
+    "id": 9,
+    "title": "Salad",
+    "price": 3.99,
+    "description": "A garden salad with your choice of dressing.",
+    "category": "sides",
+    "image": "https://www.freeiconspng.com/thumbs/salad-png/greek-salad-png-21.png",
+    "popular": false
+    },
+    {
+    "id": 10,
+    "title": "Cheese Fries",
+    "price": 4.99,
+    "description": "Crispy fries topped with melted cheese and bacon.",
+    "category": "sides",
+    "image": "https://static.vecteezy.com/system/resources/previews/032/325/466/non_2x/french-fries-with-cheese-and-bacon-isolated-on-transparent-background-file-cut-out-ai-generated-png.png",
+    "popular": false
+    },
+    {
+    "id": 11,
+    "title": "Chicken burger",
+    "price": 6.99,
+    "description": "A chicken burger with lettuce, tomato, and onions",
+    "category": "burgers",
+    "image": "https://img.pikbest.com/origin/10/12/46/10fpIkbEsTkIQ.png!sw800",
+    "popular": true
+    },
+    {
+    "id": 12,
+    "title": "Hot Wings",
+    "price": 4.99,
+    "description": "Spicy hot wings served with your choice of dipping sauce.",
+    "category": "sides",
+    "image": "https://static.vecteezy.com/system/resources/previews/024/724/514/non_2x/hot-and-crispy-fried-chicken-isolated-on-transparent-background-fresh-pieces-of-crispy-fried-chicken-fast-food-generative-ai-free-png.png",
+    "popular": false
+    },
+    {
+    "id": 13,
+    "title": "Soft Ice",
+    "price": 2.99,
+    "description": "A classic vanilla soft ice.",
+    "category": "desserts",
+    "image": "https://i.pinimg.com/originals/35/f8/d1/35f8d1fe6fb92c4663e56736753f3870.png",
+    "popular": false
+    },
+    {
+    "id": 14,
+    "title": "Chocolate Cake",
+    "price": 2.99,
+    "description": "A slice of chocolate cake.",
+    "category": "desserts",
+    "image": "https://static.vecteezy.com/system/resources/previews/009/887/171/non_2x/chocolate-cake-free-png.png",
+    "popular": false
+    },
+    {
+    "id": 15,
+    "title": "Cheesecake",
+    "price": 2.99,
+    "description": "A slice of cheesecake.",
+    "category": "desserts",
+    "image": "https://static.vecteezy.com/system/resources/previews/025/064/843/original/cheesecake-with-ai-generated-free-png.png",
+    "popular": false
+    },
+    {
+    "id": 16,
+    "title": "spicy burger",
+    "price": 6.99,
+    "description": "A spicy beef burger with lettuce, tomato, and onions",
+    "category": "burgers",
+    "image": "https://png.pngtree.com/png-clipart/20231001/original/pngtree-hot-burger-with-smoke-png-image_13222929.png",
+    "popular": true
+    }
+    ]
+}

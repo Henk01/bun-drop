@@ -1,0 +1,68 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 130px;
+    background-color: gray;
+    height: 70px;
+    overflow: hidden;
+}
+  
+  .popDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey;
+    width: calc(20% - 10px);
+    height: auto;
+    margin: 5px; 
+    box-sizing: border-box; 
+  }
+  
+  .popDivContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 500px;
+  }
+  
+  .shopBasketBtn{
+    color: black;
+    background-color: transparent;
+    width: auto;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .orderButton{
+    background-color: black;
+    color: white;
+    size: 40px;
+  }
+  
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .faPlusBtn {
+    margin-left: 10px; 
+    background-color: transparent;
+  }
+  
+  .popH1{
+    text-align: center; 
+  }
+  
+  .popImg{
+    width: 100px;
+    height: auto; 
+  }
+  
+  .logo {
+    width: 100px;
+  }
