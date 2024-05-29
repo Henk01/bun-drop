@@ -18,3 +18,38 @@
     border: none; 
     cursor: pointer;
 }
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+  .itemImg{
+    width: auto;
+    height: auto; 
+    max-height: 100px;
+}
+
+.itemDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: grey;
+    width: calc(20% - 10px);
+    height: auto;
+    margin: 5px; 
+    box-sizing: border-box; 
+    max-height: 200px;
+  }
+
+  .itemContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 500px;
+  }

@@ -8,21 +8,36 @@ import { faShoppingBasket, faPlus } from '@fortawesome/free-solid-svg-icons'
 function Home() {
   const [count, setCount] = useState(0)
   const [items, setItems] = useState([])
-  const [selectedItems, setSelectedItems] = useState([]);
+  // const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     fetch('/db.json')
       .then(response => response.json())
-      .then(data => setItems(data.item))
+      .then(data => setItems(data.items))
   }, [])
 
-  const handleAddItem = (item) => {
-    setSelectedItems([...selectedItems, item]);
+  useEffect(() => {
+    console.log(items);
+  }, [items]);
+
+  const Home = ({ selectedItems }) => {
+    // ...
   };
 
-  useEffect(() => {
-  console.log(selectedItems);
-}, [selectedItems]);
+  const handleAddItem = (item) => {
+  let itemsArray = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : [];
+
+  itemsArray.push(item);
+
+  
+  localStorage.setItem('items', JSON.stringify(itemsArray));
+  };
+
+//   useEffect(() => {
+//   console.log(selectedItems);
+// }, [selectedItems]);
 
   return (
     <>

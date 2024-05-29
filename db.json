@@ -1,5 +1,5 @@
 {
-    "item": [
+    "items": [
     {
     "id": 1,
     "title": "Classic Burger",
@@ -11,7 +11,7 @@
     },
     {
     "id": 2,
-    "title": "French Fries",
+    "title": "Chips",
     "price": 3.99,
     "description": "Crispy sweet potato fries topped with fresh parsley.",
     "category": "sides",
@@ -83,7 +83,7 @@
     },
     {
     "id": 10,
-    "title": "Cheese Fries",
+    "title": "Cheese Chips",
     "price": 4.99,
     "description": "Crispy fries topped with melted cheese and bacon.",
     "category": "sides",
@@ -92,7 +92,7 @@
     },
     {
     "id": 11,
-    "title": "Chicken burger",
+    "title": "Chicken Burger",
     "price": 6.99,
     "description": "A chicken burger with lettuce, tomato, and onions",
     "category": "burgers",
@@ -137,11 +137,29 @@
     },
     {
     "id": 16,
-    "title": "spicy burger",
+    "title": "Spicy Burger",
     "price": 6.99,
     "description": "A spicy beef burger with lettuce, tomato, and onions",
     "category": "burgers",
     "image": "https://png.pngtree.com/png-clipart/20231001/original/pngtree-hot-burger-with-smoke-png-image_13222929.png",
+    "popular": true
+    },
+    {
+    "id": 17,
+    "title": "Water",
+    "price": 1.00,
+    "description": "A bottle of water.",
+    "category": "drinks",
+    "image": "https://png.pngtree.com/png-clipart/20220125/ourmid/pngtree-liquid-water-drop-splash-three-dimensional-decoration-png-image_4361854.png",
+    "popular": false
+    },
+    {
+    "id": 18,
+    "title": "Doritos Burger",
+    "price": 6.99,
+    "description": "A beef burger with lettuce, tomato, and onions topped with Doritos",
+    "category": "burgers",
+    "image": "https://bk-latam-prod.s3.amazonaws.com/sites/burgerking.latam/files/product_detail_steakhousedoritos1-050916.png",
     "popular": true
     }
     ]

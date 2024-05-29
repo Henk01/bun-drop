@@ -1,35 +1,41 @@
 import React from "react";
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import viteLogo from '/vite.svg'
 import './Menu.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faPlus, faCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import ItemContainer from './ItemContainer.jsx'
 
 function Menu() {
     const [items, setItems] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [filter, setFilter] = useState('All');
 
     useEffect(() => {
-        fetch('/db.json')
-          .then(response => response.json())
-          .then(data => {
-            setItems(data.items);
-            setIsLoading(false);
-          });
-      }, []);
+      fetch('/db.json')
+        .then(response => response.json())
+        .then(data => {
+          setItems(data.items);
+        });
+    }, []);
+
+    useEffect(() => {
+      console.log(items);
+    }, [items]);
+
+    const handleFilterClick = (category) => {
+      setFilter(category);
+    };
+
+    const handleAddItem = (item) => {
+      // Your code here
+    };
     
     const handleSearch = () => {
         // Handle search logic here
         console.log(searchTerm);
-    }
-
-    const burgerItems = items ? items.filter(item => item.category === 'burgers') : [];
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-      }
+    };
 
     return(
         <>
@@ -60,18 +66,18 @@ function Menu() {
             </Link>
           </nav>
         </header>
-        <h1 className="burgerH1">Burgers</h1>
-        <div>
-        {burgerItems.map(item => (
-          <div key={item.id}>
-            <h2>{item.name}</h2>
-            <p>{item.price}</p>
-            <img className='burgerImg' src={item.image} alt={item.title} />
-          </div>
-        ))}
-      </div>
+        <div className="filterBtn">
+          <button onClick={() => handleFilterClick('All')}>All</button>
+          <button onClick={() => handleFilterClick('burgers')}>Burgers</button>
+          <button onClick={() => handleFilterClick('sides')}>Sides</button>
+          <button onClick={() => handleFilterClick('drinks')}>Drinks</button>
+        </div>
+        <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='burgers' />
+        <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='sides' />
+        <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='drinks' />
+        <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='desserts' />
         </>
-    )
+    );
 }
 
 export default Menu
