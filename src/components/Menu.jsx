@@ -20,16 +20,20 @@ function Menu() {
         });
     }, []);
 
-    useEffect(() => {
-      console.log(items);
-    }, [items]);
 
     const handleFilterClick = (category) => {
       setFilter(category);
     };
 
     const handleAddItem = (item) => {
-      // Your code here
+      // Get the current basket from localStorage
+      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    
+      // Add the new item to the basket
+      basket.push(item);
+    
+      // Save the updated basket back to localStorage
+      localStorage.setItem('basket', JSON.stringify(basket));
     };
     
     const handleSearch = () => {
@@ -47,7 +51,7 @@ function Menu() {
                 <FontAwesomeIcon icon={faCircleLeft} size="2x" />
             </button>
             </Link>
-            <div className="searchContainer">
+            {/* <div className="searchContainer">
                 <input 
                     type="text" 
                     className="searchTxt" 
@@ -58,7 +62,7 @@ function Menu() {
                 <button className="searchBtn" onClick={handleSearch}>
                     Search
                 </button>
-            </div>
+            </div> */}
             <Link to="/basket">
                 <button className="shopBasketBtn" >
                     <FontAwesomeIcon className="shopBasket" icon={faShoppingBasket} size="2x"/>
