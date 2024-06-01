@@ -8,13 +8,19 @@ import { faShoppingBasket, faPlus } from '@fortawesome/free-solid-svg-icons'
 function Home() {
   const [count, setCount] = useState(0)
   const [items, setItems] = useState([])
+  const [basketItems, setBasketItems] = useState([]);
   // const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
     fetch('/db.json')
       .then(response => response.json())
-      .then(data => setItems(data.items))
-  }, [])
+      .then(data => {
+        setItems(data.items);
+      });
+
+      const storedBasketItems = JSON.parse(localStorage.getItem('basket')) || [];
+      setBasketItems(storedBasketItems);
+  }, []);
 
   useEffect(() => {
     console.log(items);
@@ -25,14 +31,27 @@ function Home() {
   };
 
   const handleAddItem = (item) => {
-  let itemsArray = localStorage.getItem('items')
-  ? JSON.parse(localStorage.getItem('items'))
-  : [];
-
-  itemsArray.push(item);
-
+    // Get the current basket from localStorage
+    let basket = [...basketItems];
+    console.log("basket",basket)
   
-  localStorage.setItem('items', JSON.stringify(itemsArray));
+    // Check if the item is already in the basket
+    const existingItem = basket.find(basketItem => basketItem.id === item.id);
+  
+    if (existingItem) {
+      // If the item is already in the basket, increase its quantity
+      existingItem.quantity += 1;
+    } else {
+      // If the item is not in the basket, add it to the basket with a quantity of 1
+      item = { ...item, quantity: 1 };
+      basket.push(item);
+      
+    }
+  
+    // Save the updated basket back to localStorage and update the state
+    localStorage.setItem('basket', JSON.stringify(basket));
+    setBasketItems(basket);
+    // console.log("basket",basket);
   };
 
 //   useEffect(() => {

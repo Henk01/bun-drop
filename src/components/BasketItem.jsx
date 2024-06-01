@@ -1,27 +1,35 @@
 import React, { useState, useEffect } from 'react';
 
-const BasketItem = ({ items, onRemove }) => {
+const BasketItem = ({ items, onRemove, onItemChange }) => {
   const [quantities, setQuantities] = useState(items.map(() => 1));
 
-  const handleIncrease = (index) => {
-    const newQuantities = [...quantities];
-    newQuantities[index]++;
-    setQuantities(newQuantities);
-  };
-
-  const handleDecrease = (index) => {
-    const newQuantities = [...quantities];
-    if (newQuantities[index] > 1) {
-      newQuantities[index]--;
-    }
-    setQuantities(newQuantities);
-  };
-
-  useEffect(() => {
+  const handleIncrease = (item) => {
+    item.quantity++;
     localStorage.setItem('basket', JSON.stringify(items));
-  }, [items]);
+    onItemChange([...items]);
+    // onRemove(index);
 
-  const handleRemove = (index) => {
+};
+
+const handleDecrease = (item, index) => {
+  if(item.quantity === 1) 
+    {
+      onRemove(index);
+      
+    }
+    else{
+    item.quantity--;
+    localStorage.setItem('basket', JSON.stringify(items));
+    onItemChange([...items]);
+  }
+  
+};
+
+useEffect(() => {
+  localStorage.setItem('basket', JSON.stringify(items));
+}, [items]);
+
+const handleRemove = (index) => {
     onRemove(index);
   };
 
@@ -32,11 +40,11 @@ const BasketItem = ({ items, onRemove }) => {
           <div key={index} className='basketDiv'>
             <p className='nameTxt'>{item.title}</p>
             <img src={item.image} alt={item.title} className='itemImg'/>
-            <p className='priceTxt'>{item.price} $</p>
+            <p className='priceTxt'>$ {item.price * item.quantity}</p>
             <div className='amount'>
-              <button onClick={() => handleDecrease(index)}>-</button>
-              <span>{quantities[index]}</span>
-              <button onClick={() => handleIncrease(index)}>+</button>
+              <button onClick={() => handleDecrease(item, index)}>-</button>
+              <span className='amountSpan'>{item.quantity}</span>
+              <button onClick={() => handleIncrease(item, index)}>+</button>
             </div>
             <button onClick={() => handleRemove(index)}>Remove</button>
           </div>

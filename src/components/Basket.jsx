@@ -7,9 +7,15 @@ import BasketItem from './BasketItem.jsx'
 
 
 function Basket() {
+    const [totalPrice, setTotalPrice] = useState(0);
     const [items, setItems] = useState(() => {
         const savedItems = localStorage.getItem('basket');
         return savedItems ? JSON.parse(savedItems) : [];
+      });
+
+      const [quantities, setQuantities] = useState(() => {
+        const savedQuantities = localStorage.getItem('quantities');
+        return savedQuantities ? JSON.parse(savedQuantities) : [];
       });
 
     useEffect(() => {
@@ -17,7 +23,7 @@ function Basket() {
         if (storedItems) {
           const parsedItems = JSON.parse(storedItems);
           setItems(parsedItems);
-          console.log(parsedItems);
+          // console.log(parsedItems);
         }
       }, []);
 
@@ -25,8 +31,26 @@ function Basket() {
         const newItems = [...items];
         newItems.splice(index, 1);
         setItems(newItems);
+        localStorage.setItem('basket', JSON.stringify(newItems));
+      
+        const newQuantities = [...quantities];
+        newQuantities.splice(index, 1);
+        setQuantities(newQuantities);
+        localStorage.setItem('quantities', JSON.stringify(newQuantities));
       };
 
+      // const basket = JSON.parse(localStorage.getItem('basket')) || [];
+      useEffect(() => {
+        const newCartTotal = items.reduce(
+          (total, item) => total + item.quantity * item.price,
+          0
+        );
+        setTotalPrice(newCartTotal);
+      }, [items]);
+      
+      // console.log(items);
+      // console.log(quantities);
+      // console.log(items.length === quantities.length);
 
     return(
         <>
@@ -38,14 +62,10 @@ function Basket() {
                 <FontAwesomeIcon icon={faCircleLeft} size="2x" />
             </button>
             </Link>
-        <Link to="/basket">
-            <button className="shopBasketBtn" >
-                <FontAwesomeIcon className="shopBasket" icon={faShoppingBasket} size="2x"/>
-            </button>
-        </Link>
+            <p className='totalTxt'>Total: $ {totalPrice}</p>
       </nav>
     </header>
-    <BasketItem items={items} onRemove={handleRemove}/>
+    <BasketItem items={items} onItemChange={setItems} onRemove={handleRemove} setQuantities={setQuantities} />
         </>
     )
     

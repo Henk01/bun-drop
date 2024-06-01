@@ -8,9 +8,9 @@ import ItemContainer from './ItemContainer.jsx'
 
 function Menu() {
     const [items, setItems] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState('All');
+    const [basketItems, setBasketItems] = useState([]);
 
     useEffect(() => {
       fetch('/db.json')
@@ -18,27 +18,39 @@ function Menu() {
         .then(data => {
           setItems(data.items);
         });
-    }, []);
 
+        const storedBasketItems = JSON.parse(localStorage.getItem('basket')) || [];
+        setBasketItems(storedBasketItems);
+    }, []);
 
     const handleFilterClick = (category) => {
       setFilter(category);
     };
 
+    
+
     const handleAddItem = (item) => {
       // Get the current basket from localStorage
-      let basket = JSON.parse(localStorage.getItem('basket')) || [];
+      let basket = [...basketItems];
+      console.log("basket",basket)
     
-      // Add the new item to the basket
-      basket.push(item);
+      // Check if the item is already in the basket
+      const existingItem = basket.find(basketItem => basketItem.id === item.id);
     
-      // Save the updated basket back to localStorage
+      if (existingItem) {
+        // If the item is already in the basket, increase its quantity
+        existingItem.quantity += 1;
+      } else {
+        // If the item is not in the basket, add it to the basket with a quantity of 1
+        item = { ...item, quantity: 1 };
+        basket.push(item);
+        
+      }
+    
+      // Save the updated basket back to localStorage and update the state
       localStorage.setItem('basket', JSON.stringify(basket));
-    };
-    
-    const handleSearch = () => {
-        // Handle search logic here
-        console.log(searchTerm);
+      setBasketItems(basket);
+      // console.log("basket",basket);
     };
 
     return(

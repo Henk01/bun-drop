@@ -7,6 +7,7 @@ import SelectedItemsContext from './SelectedItemsContext';
 
 function App() {
   const [selectedItems, setSelectedItems] = useState([]);
+  
 
   return (
     <SelectedItemsContext.Provider value={{ selectedItems, setSelectedItems }}>
