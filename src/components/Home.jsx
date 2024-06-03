@@ -9,7 +9,8 @@ function Home() {
   const [count, setCount] = useState(0)
   const [items, setItems] = useState([])
   const [basketItems, setBasketItems] = useState([]);
-  // const [selectedItems, setSelectedItems] = useState([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [storedItems, setStoredItems] = useState([]); 
 
   useEffect(() => {
     fetch('/db.json')
@@ -45,7 +46,6 @@ function Home() {
       // If the item is not in the basket, add it to the basket with a quantity of 1
       item = { ...item, quantity: 1 };
       basket.push(item);
-      
     }
   
     // Save the updated basket back to localStorage and update the state
@@ -54,9 +54,14 @@ function Home() {
     // console.log("basket",basket);
   };
 
-//   useEffect(() => {
-//   console.log(selectedItems);
-// }, [selectedItems]);
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem('basket')) || [];
+    let totalQuantity = 0;
+  
+    storedItems.forEach((item) => totalQuantity += item.quantity);
+
+    setTotalQuantity(totalQuantity);
+  }, [basketItems]);
 
   return (
     <>
@@ -66,7 +71,8 @@ function Home() {
         <Link to="/menu">
         <button className="orderButton">Begin order</button>
         </Link>
-        <Link to="/basket">
+        <Link to="/basket" className='basketLink'>
+            <p className="basketCount">{totalQuantity}</p>
             <button className="shopBasketBtn" >
                 <FontAwesomeIcon className="shopBasket" icon={faShoppingBasket} size="2x"/>
             </button>

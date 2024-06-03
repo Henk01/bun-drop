@@ -53,3 +53,21 @@
     justify-content: space-between;
     min-width: 500px;
   }
+
+  /* .basketLink{
+    
+  } */
+
+  .basketCount{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

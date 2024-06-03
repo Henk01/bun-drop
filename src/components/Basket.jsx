@@ -23,7 +23,6 @@ function Basket() {
         if (storedItems) {
           const parsedItems = JSON.parse(storedItems);
           setItems(parsedItems);
-          // console.log(parsedItems);
         }
       }, []);
 
@@ -39,7 +38,6 @@ function Basket() {
         localStorage.setItem('quantities', JSON.stringify(newQuantities));
       };
 
-      // const basket = JSON.parse(localStorage.getItem('basket')) || [];
       useEffect(() => {
         const newCartTotal = items.reduce(
           (total, item) => total + item.quantity * item.price,
@@ -47,10 +45,6 @@ function Basket() {
         );
         setTotalPrice(newCartTotal);
       }, [items]);
-      
-      // console.log(items);
-      // console.log(quantities);
-      // console.log(items.length === quantities.length);
 
     return(
         <>
@@ -66,7 +60,12 @@ function Basket() {
       </nav>
     </header>
     <BasketItem items={items} onItemChange={setItems} onRemove={handleRemove} setQuantities={setQuantities} />
-        </>
+    <div className='checkoutDiv'>
+    <Link to="/checkout">
+        <button className='checkoutBtn'>Checkout</button>
+    </Link>
+    </div>
+  </>
     )
     
 }

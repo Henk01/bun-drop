@@ -11,6 +11,9 @@ function Menu() {
     const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState('All');
     const [basketItems, setBasketItems] = useState([]);
+    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [storedItems, setStoredItems] = useState([]); 
+
 
     useEffect(() => {
       fetch('/db.json')
@@ -27,7 +30,6 @@ function Menu() {
       setFilter(category);
     };
 
-    
 
     const handleAddItem = (item) => {
       // Get the current basket from localStorage
@@ -53,6 +55,15 @@ function Menu() {
       // console.log("basket",basket);
     };
 
+    useEffect(() => {
+      const storedItems = JSON.parse(localStorage.getItem('basket')) || [];
+      let totalQuantity = 0;
+    
+      storedItems.forEach((item) => totalQuantity += item.quantity);
+  
+      setTotalQuantity(totalQuantity);
+    }, [basketItems]);
+
     return(
         <>
         <header>
@@ -63,23 +74,12 @@ function Menu() {
                 <FontAwesomeIcon icon={faCircleLeft} size="2x" />
             </button>
             </Link>
-            {/* <div className="searchContainer">
-                <input 
-                    type="text" 
-                    className="searchTxt" 
-                    placeholder="Search..." 
-                    value={searchTerm} 
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button className="searchBtn" onClick={handleSearch}>
-                    Search
-                </button>
-            </div> */}
-            <Link to="/basket">
-                <button className="shopBasketBtn" >
-                    <FontAwesomeIcon className="shopBasket" icon={faShoppingBasket} size="2x"/>
-                </button>
-            </Link>
+            <Link to="/basket" className='basketLink'>
+            <p className="basketCount">{totalQuantity}</p>
+            <button className="shopBasketBtn" >
+                <FontAwesomeIcon className="shopBasket" icon={faShoppingBasket} size="2x"/>
+            </button>
+        </Link>
           </nav>
         </header>
         <div className="filterBtn">
@@ -94,6 +94,6 @@ function Menu() {
         <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='desserts' />
         </>
     );
-}
+  };
 
-export default Menu
+  export default Menu;
