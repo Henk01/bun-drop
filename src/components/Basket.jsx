@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './Basket.css'
+import Checkout from './Checkout.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import BasketItem from './BasketItem.jsx'
@@ -56,16 +57,12 @@ function Basket() {
                 <FontAwesomeIcon icon={faCircleLeft} size="2x" />
             </button>
             </Link>
-            <p className='totalTxt'>Total: $ {totalPrice}</p>
+            <h3 className='totalTxt'>Total: $ {totalPrice}</h3>
       </nav>
     </header>
     <BasketItem items={items} onItemChange={setItems} onRemove={handleRemove} setQuantities={setQuantities} />
-    <div className='checkoutDiv'>
-    <Link to="/checkout">
-        <button className='checkoutBtn'>Checkout</button>
-    </Link>
-    </div>
-  </>
+    <Checkout  totalPrice={totalPrice}/>
+        </>
     )
     
 }

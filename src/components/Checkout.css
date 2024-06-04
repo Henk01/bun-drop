@@ -1,0 +1,119 @@
+.checkoutHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: grey;
+    text-align: center;
+}
+
+.checkoutCont{
+    margin-top: 15px;
+}
+
+.paymentDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    gap: 50px;
+}
+
+.swishBtn{
+    width: 200px;
+    height: auto;
+    background-color: grey;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
+.swishImg{
+    width: 200px;
+    height: 100px;
+}
+
+.cardImg{
+    width: 200px;
+    height: 100px;
+
+}
+
+.cardBtn{
+    margin-top: 30px;
+    width: 200px;
+    height: auto;
+    background-color: grey;
+    border-radius: 30px;
+}
+
+.cardCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    background-color: grey;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+
+.inputDiv{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cardDet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+}
+
+.cardDet input{
+    font-size: 20px; 
+    width: 300px; 
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.swishDet input{
+    font-size: 20px; 
+    width: 300px; 
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.swishDet button{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.cardDet button{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.swishDet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    background-color: grey;
+    border-radius: 50px;
+    margin-top: 15px;
+}

@@ -1,0 +1,48 @@
+.confDiv{
+    background-color: white;
+    width: 90%;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.confCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.confDiv h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.confImg{
+    order: 0;
+    height: 500px;
+    width: auto;
+}
+
+.h1+time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confBtn{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    margin-left: 200px;
+    margin-top: 70px;
+}

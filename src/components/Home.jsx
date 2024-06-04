@@ -79,7 +79,9 @@ function Home() {
         </Link>
       </nav>
     </header>
+    <div className='h1Cont'>
     <h1 className="popH1">Popular Items</h1>
+    </div>
     <div className="popDivContainer">
   {Array.isArray(items) && items.map((item, index) => item.popular && (
     <div className="popDiv" key={index}>

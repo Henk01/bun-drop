@@ -18,6 +18,7 @@
     height: auto;
     margin: 5px; 
     box-sizing: border-box; 
+    border-radius: 40%;
   }
   
   .popDivContainer {
@@ -54,8 +55,15 @@
     background-color: transparent;
   }
   
+  .h1Cont{
+    text-align: center;
+  }
+
   .popH1{
     text-align: center; 
+    background-color: grey;
+    display: inline-block;
+    border-radius: 8px;
   }
   
   .popImg{

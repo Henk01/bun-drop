@@ -38,7 +38,10 @@ const handleRemove = (index) => {
       <div className="basketcontainer">
         {items.map((item, index) => (
           <div key={index} className='basketDiv'>
-            <p className='nameTxt'>{item.title}</p>
+            <div>
+              <h2 className='nameTxt'>{item.title}</h2>
+              <p className='descTxt'>{item.description}</p>
+            </div>
             <img src={item.image} alt={item.title} className='itemImg'/>
             <p className='priceTxt'>$ {item.price * item.quantity}</p>
             <div className='amount'>

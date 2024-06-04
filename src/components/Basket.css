@@ -9,4 +9,14 @@
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     background-color: gray;
+    width: 800px;
+    gap: 10px;
+}
+
+.basketcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
