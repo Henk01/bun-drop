@@ -66,9 +66,21 @@
     min-width: 500px;
   }
 
-  /* .basketLink{
-    
-  } */
+  .filterBtnDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .filterBtnDiv button{
+    margin: 10px;
+    background-color: grey;
+    height: 40px;
+    width: 100px;
+    border-radius: 44%;
+    font-size: larger;
+  }
 
   .basketCount{
     position: absolute;

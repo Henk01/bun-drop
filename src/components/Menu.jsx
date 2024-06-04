@@ -82,11 +82,12 @@ function Menu() {
         </Link>
           </nav>
         </header>
-        <div className="filterBtn">
+        <div className="filterBtnDiv">
           <button onClick={() => handleFilterClick('All')}>All</button>
           <button onClick={() => handleFilterClick('burgers')}>Burgers</button>
           <button onClick={() => handleFilterClick('sides')}>Sides</button>
           <button onClick={() => handleFilterClick('drinks')}>Drinks</button>
+          <button onClick={() => handleFilterClick('desserts')}>Desserts</button>
         </div>
         <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='burgers' />
         <ItemContainer filter={filter} items={items} handleAddItem={handleAddItem} category='sides' />
