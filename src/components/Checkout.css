@@ -117,3 +117,8 @@
     border-radius: 50px;
     margin-top: 15px;
 }
+
+button.disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
