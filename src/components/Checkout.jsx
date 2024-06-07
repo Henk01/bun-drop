@@ -34,13 +34,12 @@ function Checkout({ totalPrice }) {
     }
 
     const handleExpiryDateChange = (event) => {
-        let expiryDate = event.target.value.replace(/\//g, ''); // Remove all '/'
+        let expiryDate = event.target.value.replace(/\//g, ''); 
         if (expiryDate.length > 2) {
-            expiryDate = expiryDate.slice(0, 2) + '/' + expiryDate.slice(2); // Insert '/' after the first 2 characters
+            expiryDate = expiryDate.slice(0, 2) + '/' + expiryDate.slice(2); 
         }
-        event.target.value = expiryDate; // Update the input value
+        event.target.value = expiryDate; 
     
-        // Check if expiryDate is in the format MM/YY
         const expiryDateRegex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
         if (expiryDateRegex.test(expiryDate)) {
             setIsExpiryDateValid(true);
@@ -51,7 +50,6 @@ function Checkout({ totalPrice }) {
 
     const handleCvvChange = (event) => {
         const cvv = event.target.value;
-        // Check if cvv is 3 digits and only contains numbers
         if (cvv.length === 3 && !isNaN(cvv)) {
             setIsCvvValid(true);
         } else {
@@ -94,9 +92,16 @@ function Checkout({ totalPrice }) {
                     <div className="cardDet">
                         <h1>ENTER CARD DETAILS</h1>
                         <input type="text" id="cardName" name="cardName" placeholder="Cardholder Name" onChange={handleCardNameChange} />
+                        {!isCardNameValid && <p>Please enter your name.</p>}
                         <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" onChange={handleCardNumberChange} />
+                        {!isCardNumberValid && <p>Please enter 10 numbers.</p>}
                         <input type="text" id="expiryDate" name="expiryDate" placeholder="Expiry Date (MM/YY)" onChange={handleExpiryDateChange} />
+                        {!isExpiryDateValid && <p>Please enter month and year your card expires.</p>}
                         <input type="text" id="cvv" name="cvv" placeholder="CVV" onChange={handleCvvChange} />
+                        {!isCvvValid && <p>Please enter 3 numbers.</p>}
+                        <input type="text" id="name" name="name" placeholder="Name"></input>
+                        <input type="text" id="adsress" name="address" placeholder="Address"></input>
+                        <input type="text" id="city" name="city" placeholder="City"></input>
                         <Link to="/confirm">
                             <button className={!isCardDetailsValid ? 'disabled' : ''} disabled={!isCardDetailsValid}>PAY</button>
                         </Link>
@@ -107,6 +112,10 @@ function Checkout({ totalPrice }) {
                     <div className="swishDet">
                         <h1>ENTER PHONE NUMBER</h1>
                         <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number"  onChange={handlePhoneNumberChange}/>
+                        {!isPhoneNumberValid && <p>Please enter a valid phone number.</p>}
+                        <input type="text" id="name" name="name" placeholder="Name"></input>
+                        <input type="text" id="adsress" name="address" placeholder="Address"></input>
+                        <input type="text" id="city" name="city" placeholder="City"></input>
                         <Link to="/confirm">
                             <button className={!isPhoneNumberValid ? 'disabled' : ''} disabled={!isPhoneNumberValid}>PAY</button>
                         </Link>
