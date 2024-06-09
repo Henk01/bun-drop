@@ -94,7 +94,7 @@ function Checkout({ totalPrice }) {
                         <input type="text" id="cardName" name="cardName" placeholder="Cardholder Name" onChange={handleCardNameChange} />
                         {!isCardNameValid && <p>Please enter your name.</p>}
                         <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" onChange={handleCardNumberChange} />
-                        {!isCardNumberValid && <p>Please enter 10 numbers.</p>}
+                        {!isCardNumberValid && <p>Please enter 16 numbers.</p>}
                         <input type="text" id="expiryDate" name="expiryDate" placeholder="Expiry Date (MM/YY)" onChange={handleExpiryDateChange} />
                         {!isExpiryDateValid && <p>Please enter month and year your card expires.</p>}
                         <input type="text" id="cvv" name="cvv" placeholder="CVV" onChange={handleCvvChange} />
