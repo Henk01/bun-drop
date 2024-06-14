@@ -47,6 +47,10 @@ function Basket() {
         setTotalPrice(newCartTotal);
       }, [items]);
 
+      const clearLocalStorage = () => {
+        localStorage.clear();
+    }
+
     return(
         <>
         <header>
@@ -61,7 +65,7 @@ function Basket() {
       </nav>
     </header>
     <BasketItem items={items} onItemChange={setItems} onRemove={handleRemove} setQuantities={setQuantities} />
-    <Checkout  totalPrice={totalPrice}/>
+    <Checkout  totalPrice={totalPrice} onClearLocalStorage={clearLocalStorage}/>
         </>
     )
     

@@ -3,7 +3,7 @@ import "./Checkout.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from "react-router-dom";
 
-function Checkout({ totalPrice }) {
+function Checkout({onClearLocalStorage, totalPrice }) {
     const [paymentMethod, setPaymentMethod] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(false);
@@ -103,7 +103,7 @@ function Checkout({ totalPrice }) {
                         <input type="text" id="adsress" name="address" placeholder="Address"></input>
                         <input type="text" id="city" name="city" placeholder="City"></input>
                         <Link to="/confirm">
-                            <button className={!isCardDetailsValid ? 'disabled' : ''} disabled={!isCardDetailsValid}>PAY</button>
+                            <button onClick={onClearLocalStorage} className={!isCardDetailsValid ? 'disabled' : ''} disabled={!isCardDetailsValid}>PAY</button>
                         </Link>
                     </div>
                     </div>
@@ -117,7 +117,7 @@ function Checkout({ totalPrice }) {
                         <input type="text" id="adsress" name="address" placeholder="Address"></input>
                         <input type="text" id="city" name="city" placeholder="City"></input>
                         <Link to="/confirm">
-                            <button className={!isPhoneNumberValid ? 'disabled' : ''} disabled={!isPhoneNumberValid}>PAY</button>
+                            <button onClick={onClearLocalStorage} className={!isPhoneNumberValid ? 'disabled' : ''} disabled={!isPhoneNumberValid}>PAY</button>
                         </Link>
                     </div>
                 )}
